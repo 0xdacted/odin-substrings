@@ -1,4 +1,4 @@
-# takes input string and an array of substrings, determines whether the input string is included in the array of substrings, 
+# takes input string and an array of substrings, determines whether any substring was found in the input sting , 
 #  returns a hash listing each substring that was found in the input string and how many times it was found
 require 'pry-byebug'
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
@@ -6,11 +6,14 @@ dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","o
 def substrings(word, dictionary)
 hash = {}
 times = 0
-if dictionary.include?(word)
+dictionary.each do |entry| 
+  if word.include?(entry)
   times +=1
-  hash = {substring: word, times: times}
+  hash = {substring: entry, times: times}
 end
-hash
+end
+p hash
+
 end
 
 substrings("below", dictionary)
