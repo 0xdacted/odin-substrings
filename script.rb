@@ -4,15 +4,21 @@ require 'pry-byebug'
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
 
 def substrings(word, dictionary)
-hash = {}
-times = 0
+  hash = {}
+  times = 0
+  hash_array = []
+
 dictionary.each do |entry| 
+  
   if word.include?(entry)
   times +=1
   hash = {substring: entry, times: times}
+  hash_array.push(hash)
+  times -=1
 end
 end
-p hash
+
+p hash_array
 
 end
 
