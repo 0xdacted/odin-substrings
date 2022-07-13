@@ -5,20 +5,16 @@ dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","o
 
 def substrings(string, dictionary)
   hash = {}
-  hash_array = []
-
-dictionary.each do |definition| 
+dictionary.each do |key| 
   
-  if string.downcase.include?(definition)
-  times = dictionary.count {|word| word.match(definition)}
-  hash = {substring: definition, times: times}
-  
-  hash_array.push(hash)
-  
+  if string.downcase.include?(key)
+  times = dictionary.count {|word| word.match(key)}
+  hash[key] = times
+ 
 end
 end
 
-p hash_array
+p hash
 
 end
 
