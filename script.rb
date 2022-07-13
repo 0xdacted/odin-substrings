@@ -1,4 +1,4 @@
-# takes input string and an array of substrings, determines whether any substring was found in the input sting , 
+# takes input string and an array of substrings, determines whether any substring was found in the input string , 
 #  returns a hash listing each substring that was found in the input string and how many times it was found
 require 'pry-byebug'
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
@@ -8,7 +8,7 @@ def substrings(string, dictionary)
 dictionary.each do |key| 
   
   if string.downcase.include?(key)
-  times = dictionary.count {|word| word.match(key)}
+  times = string.downcase.scan(/#{key}/).count
   hash[key] = times
  
 end
