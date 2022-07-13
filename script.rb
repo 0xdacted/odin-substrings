@@ -3,18 +3,18 @@
 require 'pry-byebug'
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
 
-def substrings(word, dictionary)
+def substrings(string, dictionary)
   hash = {}
-  times = 0
   hash_array = []
 
-dictionary.each do |entry| 
+dictionary.each do |definition| 
   
-  if word.include?(entry)
-  times +=1
-  hash = {substring: entry, times: times}
+  if string.downcase.include?(definition)
+  times = dictionary.count {|word| word.match(definition)}
+  hash = {substring: definition, times: times}
+  
   hash_array.push(hash)
-  times -=1
+  
 end
 end
 
@@ -22,4 +22,4 @@ p hash_array
 
 end
 
-substrings("below", dictionary)
+substrings("Howdy partner, sit down! How's it going?", dictionary)
